@@ -19,11 +19,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Configura Gradle
+    - name: Configura Gradle 8.1.1
       uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.1.1'
 
     - name: Genera APK
-      run: gradle assembleDebug
+      run: gradle assembleDebug --stacktrace
 
     - name: Salva l'APK per il download
       uses: actions/upload-artifact@v4
